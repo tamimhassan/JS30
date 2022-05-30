@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Console Tricks!</title>
+  </head>
+  <body>
+    <p class="pragraph hey" onclick="makeGreen()">xTAMIMxHASSAN</p>
+
+    <script>
+      const cats = [
+        { name: "Snickers", age: 2 },
+        { name: "hugo", age: 3 },
+      ];
+
+      function makeGreen() {
+        const p = document.querySelector("p");
+        p.style.color = "#BADA55";
+        p.style.fontSize = "30px";
+      }
+
+      // Reguler
+      console.log("Hello");
+
+      // Interpoled
+      console.log("Hello I am a %s string!", "♥");
+
+      // styled
+      console.log(
+        "%c Styled text using console",
+        "font-size:50px; background-color: #BADA55;"
+      );
+
+      // warning
+      console.warn("Ho NOOOO");
+
+      // Errors
+      console.error("Shit!");
+
+      // Info
+      console.info(
+        `JS Master journey string from today : ${new Date(
+          "30 May 2022 9:00 PM"
+        )}`
+      );
+
+      // Testing
+      const p = document.querySelector("p");
+      console.assert(
+        p.classList.contains("ouch"),
+        "This is wrong! 'ouch' class not found into the p tag!"
+      );
+
+      // clearing
+      // console.clear();
+
+      // Viewing DOM Element
+      console.log(p);
+      console.dir(p);
+
+      // Grouping together
+
+      cats.forEach((cat) => {
+        console.groupCollapsed(`${cat.name}`);
+        console.log(`This is ${cat.name}`);
+        console.log(`${cat.name} is ${cat.age} years old`);
+        console.groupEnd(`${cat.name}`);
+      });
+
+      // counting
+      console.count("Hey");
+      console.count("Tamim");
+      console.count("Hey");
+      console.count("Tamim");
+      console.count("Hey");
+      console.count("Tamim");
+      console.count("Hey");
+      console.count("Tamim");
+      console.count("Tamim");
+      console.count("Tamim");
+      console.count("Tamim");
+      console.count("Hey");
+
+      // timeing
+      console.time("Fetching Data");
+      fetch("https://api.github.com/users/tamimhassan")
+        .then((data) => data.json())
+        .then((data) => {
+          console.timeEnd("Fetching Data");
+          console.log(data);
+        });
+
+      console.table(cats);
+    </script>
+  </body>
+</html>
